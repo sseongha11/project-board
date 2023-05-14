@@ -30,8 +30,34 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // queryDSL
+    implementation "com.querydsl:querydsl-jpa"
+    implementation "com.querydsl:querydsl-core"
+    implementation "com.querydsl:querydsl-collections"
+    annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa" // querydsl JPAAnnotationProcessor
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api" // java.lang.NoClassDefFoundError (javax.annotation.Generated) correspondence code
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api" // java.lang.NoClassDefFoundError (javax.annotation.Entity) correspondence code
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+// Querydsl
+def generated = 'src/main/generated'
+
+// querydsl QClass file generated location
+tasks.withType(JavaCompile) {
+    options.getGeneratedSourceOutputDirectory().set(file(generated))
+}
+
+// Add querydsl QClass to java source set
+sourceSets {
+    main.java.srcDirs += [ generated ]
+}
+
+// gradle clean -> delete QClass Directory
+clean {
+    delete file(generated)
 }
