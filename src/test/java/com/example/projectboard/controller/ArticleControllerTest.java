@@ -21,7 +21,6 @@ class ArticleControllerTest {
         this.mvc = mvc;
     }
 
-    @Disabled("Developing")
     @DisplayName("[view][GET} Article List (Board) Page - normal request")
     @Test
     public void givenNothing_whenRequestingArticlesView_thenReturnsArticlesView() throws Exception {
@@ -30,7 +29,7 @@ class ArticleControllerTest {
         // When & Then
         mvc.perform(get("/articles"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/index"))
                 .andExpect(model().attributeExists("articles"));
     }

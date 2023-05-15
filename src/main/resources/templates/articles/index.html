@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Board Page</title>
+</head>
+<body>
+    <header>
+        Header
+        <hr>
+    </header>
+
+    <main>
+        <form>
+            <label for="search-type" hidden>Category</label>
+            <select id="search-type" name="search-type">
+                <option>Subject</option>
+                <option>Content</option>
+                <option>ID</option>
+                <option>Alias</option>
+                <option>Hashtag</option>
+            </select>
+            <label for="search-value">Search Word</label>
+            <input id="search-value" type="search" placeholder="search..." name="search-value">
+            <button type="submit">Search</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Hashtag</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>The first content</td>
+                    <td>#java</td>
+                    <td>Seongha</td>
+                    <td>01-Jan-2023</td>
+                </tr>
+                <tr>
+                    <td>The second content</td>
+                    <td>#spring</td>
+                    <td>Seongha</td>
+                    <td>02-Jan-2023</td>
+                </tr>
+                <tr>
+                    <td>The third content</td>
+                    <td>#java</td>
+                    <td>Seongha</td>
+                    <td>03-Jan-2023</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav>
+            <table>
+                <tr>
+                    <td>previous</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>next</td>
+                </tr>
+            </table>
+        </nav>
+    </main>
+
+    <footer>
+        <hr>
+        Footer
+    </footer>
+
+</body>
+</html>
