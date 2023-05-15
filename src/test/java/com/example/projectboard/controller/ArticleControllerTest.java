@@ -34,7 +34,6 @@ class ArticleControllerTest {
                 .andExpect(model().attributeExists("articles"));
     }
 
-    @Disabled("Developing")
     @DisplayName("[view][GET} Article List Specific Page - normal request")
     @Test
     public void givenNothing_whenRequestingArticleView_thenReturnArticleView() throws Exception {
