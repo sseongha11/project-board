@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Board Page</title>
 </head>
 <body>
-    <header>
-        Header
-        <hr>
-    </header>
+    <header th:replace="header :: header"></header>
 
     <main>
         <form>
@@ -70,10 +67,6 @@
         </nav>
     </main>
 
-    <footer>
-        <hr>
-        Footer
-    </footer>
-
+    <footer th:replace="footer :: footer"></footer>
 </body>
 </html>
