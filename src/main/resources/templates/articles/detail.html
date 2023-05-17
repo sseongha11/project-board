@@ -2,64 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Uno Kim">
     <title>Article Page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
+
 <body>
-    <header id="header"></header>
 
-    <main>
-        <header>
-            <h1>The first article</h1>
-        </header>
-        <aside>
-            <p>Seongha</p>
-            <p><a href="mailto:sseongha00@gmail.com">sseongha00@gmail.com</a></p>
-            <p><time datetime="01-Jan-2023T00:00:00">01-Jan-2023</time></p>
-            <p>#java</p>
-        </aside>
+<header id="header"></header>
 
-        <section>
-            <p>Body<br><br></p>
+<main class="container">
+    <header class="py-5 text-center">
+        <h1>The First Article</h1>
+    </header>
 
-            <div>
-                <form>
-                    <label for="articleComment" hidden>Comments</label>
-                    <textarea id="articleComment" placeholder="Create comments..." rows="3"></textarea>
-                    <button type="submit">Create</button>
-                </form>
-
-                <ul>
-                    <li>
-                        <div>
-                            <time><small>01-Jan-2023</small></time>
-                            <strong>Seongha</strong>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-                                Lorem ipsum dolor sit amet
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <time><small>01-Jan-2023</small></time>
-                            <strong>Seongha</strong>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-                                Lorem ipsum dolor sit amet
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <nav>
-                <a href="#">Pre</a>
-                <a href="#">Next</a>
-            </nav>
+    <div class="row g-5">
+        <section class="col-md-5 col-lg-4 order-md-last">
+            <aside>
+                <p><span class="nick-name">Seongha</span></p>
+                <p><a class="u-url" rel="me" href="mailto:sseongha00@gmail.com">sseongha00@mail.com</a></p>
+                <p><time datetime="01-01-2023T00:00:00">01-Jan-2023</time></p>
+                <p>#java</p>
+            </aside>
         </section>
 
-    </main>
+        <article class="col-md-7 col-lg-8">
+            <p>Content<br><br></p>
+        </article>
+    </div>
 
-    <footer id="footer"></footer>
+    <div class="row g-5">
+        <section>
+            <form class="row g-3">
+                <div class="col-8">
+                    <label for="comment-textbox" hidden>Comments</label>
+                    <textarea class="form-control" id="comment-textbox" placeholder="Comments..." rows="3"></textarea>
+                </div>
+                <div class="col-auto">
+                    <label for="comment-submit" hidden>Write Comments</label>
+                    <button class="btn btn-primary" id="comment-submit" type="submit">Submit</button>
+                </div>
+            </form>
+
+            <ul>
+                <li>
+                    <div>
+                        <time><small>01-Jan-2023</small></time>
+                        <strong>Seongha</strong>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                            Lorem ipsum dolor sit amet
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <time><small>02-Jan-2023</small></time>
+                        <strong>Seongha</strong>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                            Lorem ipsum dolor sit amet
+                        </p>
+                    </div>
+                </li>
+            </ul>
+
+        </section>
+    </div>
+
+    <div class="row g-5">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; prev</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">next &raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</main>
+
+<footer id="footer"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
