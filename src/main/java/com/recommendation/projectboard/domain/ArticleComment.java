@@ -1,15 +1,55 @@
 package com.recommendation.projectboard.domain;
 
-import java.time.LocalDateTime;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import java.util.Objects;
 
-public class ArticleComment {
+@Getter
+@ToString
+@Table(indexes = {
+        @Index(columnList = "content"),
+        @Index(columnList = "createdAt"),
+        @Index(columnList = "createdBy"),
+})
+@Entity
+public class ArticleComment extends AuditingFields {
 
-    private Long id; // Article ID
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; // Article comment ID
+
+    @Setter
+    @ManyToOne(optional = false)
     private Article article; // Article
+
+    @Setter
+    @Column(nullable = false, length = 500)
     private String content; // Article comment content
 
-    private LocalDateTime createdAt; // Article creation date
-    private String createdBy; // Article creator
-    private LocalDateTime modifiedAt; // Article update date
-    private String modifiedBy; // Article updater
+    // Article comment constructor or we can use Lombok
+    protected ArticleComment() {
+    }
+
+    private ArticleComment(Article article, String content) {
+        this.article = article;
+        this.content = content;
+    }
+
+    public static ArticleComment of(Article article, String content) {
+        return new ArticleComment(article, content);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ArticleComment that)) return false;
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }
